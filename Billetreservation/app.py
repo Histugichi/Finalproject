@@ -18,6 +18,7 @@ def service():
 @app.route('/evenement')
 def evenement():
     return render_template('evenement.html')
+import annoncevoyage.py
 
 @app.route('/reservation')
 def reservation():
