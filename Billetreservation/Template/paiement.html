@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiement</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Style pour centrer le formulaire */
+        .center-div {
+            margin: 0 auto; /* Marge automatique sur les côtés pour centrer le contenu */
+            max-width: 400px; /* Largeur maximale du formulaire */
+        }
+
+        /* Style pour l'image de fond */
+        body {
+            background-image: url(Static/images/avion-voyager-plane-scaled-e1652808397530.jpg); 
+            background-size: cover; 
+            background-position: center; 
+            height: 100vh; 
+            margin: 0; 
+            padding: 0; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>Formulaire de paiement</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 center-div">
+                <form action="/process_paiement" method="post">
+                    <div class="form-group">
+                        <label for="card_number">Numéro de carte:</label>
+                        <input type="text" class="form-control" id="card_number" name="card_number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="expiry_date">Date d'expiration:</label>
+                        <input type="text" class="form-control" id="expiry_date" name="expiry_date" placeholder="MM/YYYY" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV:</label>
+                        <input type="text" class="form-control" id="cvv" name="cvv" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Payer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

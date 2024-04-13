@@ -50,6 +50,14 @@
         .error {
             color: red;
         }
+        .register-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .register-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -63,6 +71,9 @@
             <input type="submit" value="Login">
         </form>
         <div id="error-msg" class="error" style="display:none;"></div>
+        <div class="register-link">
+            <a href="{{ url_for('register') }}">Register</a>
+        </div>
     </div>
 
     <script>
@@ -83,4 +94,3 @@
     </script>
 </body>
 </html>
-

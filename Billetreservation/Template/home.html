@@ -4,22 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page d'accueil</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
-    
-
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('{{ url_for('static', filename='img_lights.jpg') }}'); 
-            background-size: cover; 
-            background-position: center; 
-            background-repeat: no-repeat; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;  }
+            background-image: url('static/images/img_lights.jpg'); /* Chemin relatif vers votre image de fond */
+            background-size: cover; /* Ajuster la taille de l'image de fond pour couvrir l'ensemble de la fenêtre */
+        }
         
         .container {
             max-width: 800px;
@@ -27,6 +19,7 @@
             background-color: rgba(255, 255, 255, 0.8); 
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 50px auto; /* Centrer la boîte dans la fenêtre */
         }
 
         .title {
@@ -57,13 +50,15 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="title">Bienvenue cher voyageur</h1>
+        <h1 class="title">L'amour du voyage se trouve ici,reserver maintenant</h1>
         <div class="menu">
-            <a href="#" class="register">Register</a>
-            <a href="#" class="events">Événements</a>
-            <a href="#" class="login">Login</a>
-            <a href="#" class="paiement">Paiement</a>
+            <a href="/templates/register.html" class="register">Register</a>
+            <a href="/templates/evenement.html" class="events">Événements</a>
+            <a href="/templates/login.html" class="login">Login</a>
+            <a href="/templates/paiement.html" class="paiement">Paiement</a>
+            <a href="/templates/reservations.html" class="reservations">reservations</a>
         </div>
-    </div>
+        
 </body>
 </html>
+
