@@ -1,64 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page d'accueil</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: url('static/images/img_lights.jpg'); /* Chemin relatif vers votre image de fond */
-            background-size: cover; /* Ajuster la taille de l'image de fond pour couvrir l'ensemble de la fenêtre */
-        }
-        
-        .container {
-            max-width: 800px;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.8); 
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: 50px auto; /* Centrer la boîte dans la fenêtre */
-        }
+{% extends 'default.html' %}
+{% block title %} page d'accueil. {% endblock %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url('static/images/img_lights.jpg');
+        /* Chemin relatif vers votre image de fond */
+        background-size: cover;
+        /* Ajuster la taille de l'image de fond pour couvrir l'ensemble de la fenêtre */
+    }
 
-        .title {
-            text-align: center;
-            color: #333;
-            margin-bottom: 20px;
-        }
+   
+</style>
+{% block content %}
 
-        .menu {
-            text-align: center;
-        }
+<h1>Bienvenue dans notre page à propos.</h1>
 
-        .menu a {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 20px;
-            color: #fff;
-            background-color: #007bff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .menu a:hover {
-            background-color: #0056b3;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1 class="title">L'amour du voyage se trouve ici,reserver maintenant</h1>
-        <div class="menu">
-            <a href="/templates/register.html" class="register">Register</a>
-            <a href="/templates/evenement.html" class="events">Événements</a>
-            <a href="/templates/login.html" class="login">Login</a>
-            <a href="/templates/paiement.html" class="paiement">Paiement</a>
-            <a href="/templates/reservations.html" class="reservations">reservations</a>
-        </div>
-        
-</body>
-</html>
-
+{% endblock %}
