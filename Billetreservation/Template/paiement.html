@@ -1,26 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'default.html' %}
+{% block title %} Login  {% endblock %}
+
+{%block content%}
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paiement</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Style pour centrer le formulaire */
-        .center-div {
-            margin: 0 auto; /* Marge automatique sur les côtés pour centrer le contenu */
-            max-width: 400px; /* Largeur maximale du formulaire */
-        }
-
-        /* Style pour l'image de fond */
-        body {
-            background-image: url(Static/images/avion-voyager-plane-scaled-e1652808397530.jpg); 
-            background-size: cover; 
-            background-position: center; 
-            height: 100vh; 
-            margin: 0; 
-            padding: 0; 
-        }
+      
     </style>
 </head>
 <body>
@@ -60,3 +49,4 @@
     </div>
 </body>
 </html>
+{% endblock%}

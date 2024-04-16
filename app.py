@@ -17,7 +17,7 @@ from reservations.reservation import Reservation
 app = Flask(__name__, static_folder='C:/Users/maxle/OneDrive/Bureau/python/tp/ProjetFinal/static')
 app.secret_key = 'secretkey'
 #bcrypt = Bcrypt(app)
-
+salt = bcrypt.gensalt(rounds=15)
 @app.route('/')
 def home():
     return render_template('home.html')
@@ -36,9 +36,9 @@ def login():
             message="error"
         else:
             # Chercher hashed password de la base de donnée base sur username
-            user = UserDao.get_one(username)
+            message,user= UserDao.get_one(username)
             hashed_password_bd = user[2]
-           
+          
             if hashed_password_bd:
                  hashed_password_bd = hashed_password_bd.encode('utf-8')
                 # Verifier si le mot de passe est correct
@@ -66,7 +66,7 @@ def registrer():
         #Hash password
         is_admin= 0
         password = password.encode('utf-8')
-        salt = bcrypt.gensalt(rounds=15)
+        
         hashed_password = bcrypt.hashpw(password, salt)
         
         if nom_complet=="" or username=="" or password=="" :
