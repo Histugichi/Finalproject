@@ -5,5 +5,5 @@ def connect_db():
         user='root',
         host='localhost',
         password='',
-        database='projetfinale'
+        database='billet'
     )

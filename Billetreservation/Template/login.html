@@ -1,43 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+{% extends 'default.html' %}
+{% block title %} Login  {% endblock %}
 
-    <!-- Les styles CSS peuvent être inclus ici -->
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: yellowgreen;
-        }
+{%block content%}
 
-        form {
-            width: 500px; /* Largeur du formulaire */
-        }
-    </style>
-</head>
-<body>
-    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
-        <circle cx="100" cy="100" r="90" fill="red" />
-        <text x="50%" y="60%" text-anchor="middle" fill="black" font-size="16px">Vols,MD!</text>
-    </svg>
+<h>Veuillez vous connecter à votre compte.</h>
+<style>
 
-    <h1>Login</h1>
-    <form method="POST" action="{{ url_for('login') }}">
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email"><br><br>
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password"><br><br>
-        <input type="submit" value="Login">
-    </form>
+</style>
 
+
+
+
+  {% if message=='error'%}
+    <p class="alert alert-danger">Tous les champs doivent être remplie pour pouvoir se connecter.</p>
   
-   
+  {% elif user==None  and message=='success'%}
+    <p class="alert alert-warning">Nom utilisateur ou mot de passe incorrect</p>
+  {% elif message=='failure'%}
+    <p class="alert alert-danger">Erreur lors du traitement, veuillez réessayer plus tard.</p>
+  {% endif %}
 
-</body>
-</html>
+
+<form action="{{url_for('login')}}" method="post" class="container">
+  
+    <div class="form-floating mb-3">
+      <input name ='username' type="text" class="form-control" id="username" placeholder="">
+      <label for="username">Username</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input name='password' type="text" class="form-control" id="password" placeholder="">
+      <label for="password">Password</label>
+    </div>
+
+    <input type="submit" value="Se connecter" class = "btn btn-success">
+</form> 
+
+{% endblock%}

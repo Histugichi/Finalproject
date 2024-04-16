@@ -1,14 +1,14 @@
 {% extends 'default.html' %}
 {% block title %} reservation. {% endblock %}
 {% block content %}
-<h1>Réservation de vol</h1>
+<h1>Activité sportif</h1>
     <form action="/reservations" method="post">
         <label for="nom">Nom:</label><br>
-        <input type="text" id="nom" name="nom"><br><br>
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email"><br><br>
-        <label for="date">Date de vol:</label><br>
-        <input type="date" id="date" name="date"><br><br>
+        <input type="nom" id="nom" name="nom"><br><br>
+        <label for="date">Date:</label><br>
+        <input type="date" id="date" name="email"><br><br>
+        <label for="statut">Statut:</label><br>
+        <input type="statut" id="statut" name="date"><br><br>
         <input type="submit" value="Réserver">
     </form>
 
