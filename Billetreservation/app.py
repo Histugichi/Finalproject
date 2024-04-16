@@ -36,12 +36,13 @@ def login():
             message="error"
         else:
             # Chercher hashed password de la base de donnée base sur username
-            user = UserDao.get_one(username,password)
+            user = UserDao.get_one(username)
             hashed_password_bd = user[2]
-       
+           
             if hashed_password_bd:
+                 hashed_password_bd = hashed_password_bd.encode('utf-8')
                 # Verifier si le mot de passe est correct
-                if bcrypt.checkpw(hashed_password_bd,password):
+            if bcrypt.checkpw(hashed_password_bd,password):
                     message = 'success'
                    
                     if user:
