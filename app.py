@@ -14,7 +14,7 @@ from reservations.reservation_dao import ReservationDao
 from reservations.reservation import Reservation
 
 
-app = Flask(__name__, static_folder='C:/Users/maxle/OneDrive/Bureau/python/tp/ProjetFinal/static')
+app = Flask(__name__,)
 app.secret_key = 'secretkey'
 #bcrypt = Bcrypt(app)
 salt = bcrypt.gensalt(rounds=15)
