@@ -1,52 +1,36 @@
 {% extends 'default.html' %}
-{% block title %} Login  {% endblock %}
 
-{%block content%}
+{% block title %} Registrer {% endblock %}
+{% block content %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paiement</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-      
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h1>Formulaire de paiement</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 center-div">
-                <form action="/process_paiement" method="post">
-                    <div class="form-group">
-                        <label for="montant">Montant:</label>
-                        <input type="text" class="form-control"  required>
-                    </div>
-                    <div class="form-group">
-                        <label for="mode de paiement">Mode de paiement:</label>
-                        <input type="text" class="form-control"  required>
-                    </div>
-                    <div class="form-group">
-                        <label for="card_number">Numéro de carte:</label>
-                        <input type="text" class="form-control" id="card_number" name="card_number" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="expiry_date">Date d'expiration:</label>
-                        <input type="text" class="form-control" id="expiry_date" name="expiry_date" placeholder="MM/YYYY" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="cvv">CVV:</label>
-                        <input type="text" class="form-control" id="cvv" name="cvv" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Payer</button>
-                </form>
-            </div>
-        </div>
+<h1>Veuillez remplir ces champs pour créer un compte</h1>
+
+    {% if message=='error'%}
+      <p class="alert alert-danger">Tous les champs doivent être remplie.</p>
+    
+    {% elif message=='failure' %}
+      <p class="alert alert-warning">Une erreur est survenue lors de la création du compte,
+       veuillez vous assurer que tout les information sont exacte.
+      </p>
+    
+    {% elif message=='success' %}
+     <p class="alert alert-success">Le compte {{user.username}}, a bien été créer !</p>
+    {% endif %}
+
+<form action="{{url_for('registrer')}}" method="post" class = "container">
+    <div class="form-floating mb-3">
+        <input name = 'nom_complet' type="text" class="form-control" id="Nom complet" placeholder="">
+        <label for="nom_complet">Nom complet</label>
+      </div>
+       <div class="form-floating mb-3">
+        <input  name = 'username' type="text" class="form-control" id="Username" placeholder="">
+        <label for="username">Username</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input name='password' type="password" class="form-control" id="Password" placeholder="">
+        <label for="password">Password</label>
     </div>
-</body>
-</html>
-{% endblock%}
+    <input type="submit" value="Ajouter" class = "btn btn-success">
+</form>
+
+{% endblock %}

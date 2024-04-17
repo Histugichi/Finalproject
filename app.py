@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, session, url_for, redirect
 #from flask_bcrypt import Bcrypt
-from base64 import decode
+
 import bcrypt
 
 
@@ -16,7 +16,6 @@ from reservations.reservation import Reservation
 
 app = Flask(__name__,)
 app.secret_key = 'secretkey'
-#bcrypt = Bcrypt(app)
 salt = bcrypt.gensalt(rounds=15)
 @app.route('/')
 def home():
@@ -36,19 +35,19 @@ def login():
             message="error"
         else:
             # Chercher hashed password de la base de donnée base sur username
-            message,user= UserDao.get_one(username)
+            (message,user)= UserDao.get_one(username)
             hashed_password_bd = user[2]
           
             if hashed_password_bd:
-                 hashed_password_bd = hashed_password_bd.encode('utf-8')
+                 hashed_password_bd = hashed_password_bd.encode()
                 # Verifier si le mot de passe est correct
-            if bcrypt.checkpw(hashed_password_bd,password):
+            if bcrypt.checkpw(password, hashed_password_bd):
                     message = 'success'
                    
                     if user:
                         session['nom_complet']=user[0] #On met le nom complet dans notre variable de session
                         session['username']=user[1] # On met le username dans notre variable de session
-                        return redirect(url_for("home"))   
+                        return redirect(url_for("reservations"))   
             
         message= 'Username et password invalide'
     return render_template('login.html', message=message, user=None)
@@ -97,6 +96,7 @@ def reservations():
         nom = request.form['nom']
         email = request.form['email']
         date = request.form['date']
+        return redirect(url_for("paiement")) 
     return render_template('reservations.html', nom=nom, email=email, date=date)
 
 @app.route('/confirmation')
@@ -124,10 +124,13 @@ def add_user():
         password = req ['password']
         type = req ['type']
         
+        password = password.encode('utf-8')
+        hashed_password = bcrypt.hashpw(password, salt)
+        
         if nom_complet=="" or username=="" or password=="" or type=="":
             message="error"
         else:
-            user = User(nom_complet,username,password, type)
+            user = User(nom_complet,username,hashed_password, type)
             message = UserDao.create(user)
         print(message)
     return render_template('add_users.html', message= message, user=user)
