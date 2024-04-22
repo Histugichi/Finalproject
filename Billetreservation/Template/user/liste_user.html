@@ -1,0 +1,39 @@
+{% extends 'admin.html' %}
+
+{% block title %} Utilisateurs {% endblock %}
+{% block content %}
+
+<br>
+<h1>Voici la liste des utilisateurs.</h1>
+    
+    <table class="table table-success table-striped">
+        <thead>
+                <tr>
+                  
+                    <th scope="col">Nom complet</th>
+                    <th scope="col">Username</th> 
+                    <th scope="col">Email</th> 
+                    <th scope="col">type</th>
+                    <th scope="col">ID</th>
+                </tr>
+              
+        </thead>
+        <tbody>
+            {% for user in users %}
+
+                <tr>
+                    <td>{{user[0]}}</td>
+                    <td>{{user[1]}}</td>
+                    <td>{{user[3]}}</td>
+                    <td>{{user[4]}}</td>
+                    <td>{{user[5]}}</td>
+                    <td>{{user[6]}}</td>
+                    
+                </tr>
+            {%endfor %}
+           
+        </tbody>
+      </table>
+      
+
+{% endblock %}

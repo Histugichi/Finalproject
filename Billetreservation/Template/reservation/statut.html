@@ -1,0 +1,32 @@
+{% extends 'admin.html' %}
+
+{% block title %} Statut des réservationst {% endblock %}
+{% block content %}
+
+<br>
+<h1>Voici le statut des réservations.</h1>
+    
+    <table class="table table-success table-striped">
+        <thead>
+                <tr>
+                  
+                  <th scope="col">ID évènement</th>
+                  <th scope="col">ID réservation</th>
+                  <th scope="col">Statut</th>
+                </tr>    
+        </thead>
+        <tbody>
+            {% for reservation in reservations %}
+
+                <tr>
+                    <td>{{reservation[3]}}</td>
+                    <td>{{reservation[5]}}</td>
+                    <td>{{reservation[6]}}</td>
+                    
+                </tr>
+            {%endfor %}
+ 
+    </tbody>
+  </table>
+
+{% endblock %}

@@ -1,11 +1,11 @@
 class Paiement:
-    def __init__(self,montant,mode_paiement,id_paiement,date,CVV) -> None:
+    def __init__(self,montant,mode_paiement,numero_carte,date_expiration,cvv) -> None:
         
         self.__montant = montant
         self.__mode_paiement = mode_paiement
-        self.__id_paiement = id_paiement
-        self.__date = date
-        self.__CVV = CVV
+        self.__numero_carte = numero_carte
+        self.__date_expiration = date_expiration
+        self.__cvv = cvv
 
     @property
     def montant(self):
@@ -24,27 +24,27 @@ class Paiement:
         self.__mode_paiement = value
 
     @property
-    def id_paiement(self):
-        return self.__id_paiement
+    def numero_carte(self):
+        return self.__numero_carte
 
-    @id_paiement.setter
-    def id_paiement(self, value):
-        self.__id_paiement = value
-
-    @property
-    def date(self):
-        return self.__date
-
-    @date.setter
-    def date(self, value):
-        self.__date = value
+    @numero_carte.setter
+    def numero_carte(self, value):
+        self.__numero_carte = value
 
     @property
-    def CVV(self):
-        return self.__CVV
+    def date_expiration(self):
+        return self.__date_expiration
 
-    @CVV.setter
-    def CVV(self, value):
-        self.__CVV = value
+    @date_expiration.setter
+    def date_expiration(self, value):
+        self.__date_expiration = value
+
+    @property
+    def cvv(self):
+        return self.__cvv
+
+    @cvv.setter
+    def cvv(self, value):
+        self.__cvv = value
 
         

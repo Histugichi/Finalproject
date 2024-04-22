@@ -3,15 +3,14 @@
 {% block title %} Registrer {% endblock %}
 {% block content %}
 
-<h1>Veuillez remplir ces champs pour créer un compte</h1>
+<h1>Veuillez remplir ces champs pour créer un compte.</h1>
 
     {% if message=='error'%}
       <p class="alert alert-danger">Tous les champs doivent être remplie.</p>
     
     {% elif message=='failure' %}
       <p class="alert alert-warning">Une erreur est survenue lors de la création du compte,
-       veuillez vous assurer que tout les information sont exacte.
-      </p>
+       veuillez vous assurer que tout les information sont exacte. </p>
     
     {% elif message=='success' %}
      <p class="alert alert-success">Le compte {{user.username}}, a bien été créer !</p>
@@ -30,6 +29,10 @@
         <input name='password' type="password" class="form-control" id="Password" placeholder="">
         <label for="password">Password</label>
     </div>
+    <div class="form-floating mb-3">
+      <input name='email' type="text" class="form-control" id="Email" placeholder="">
+      <label for="email">Email</label>
+  </div>
     <input type="submit" value="Ajouter" class = "btn btn-success">
 </form>
 

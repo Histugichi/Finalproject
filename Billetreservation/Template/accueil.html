@@ -1,5 +1,5 @@
 {% extends 'default.html' %}
-{% block title %} Home. {% endblock %}
+{% block title %} Accueil {% endblock %}
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -13,8 +13,18 @@
 
    
 </style>
-{% block content %}
 
-<h1>Activités sportives.com est un site web ou vous pouvez selectionner une panoplie d'activité pour group ou seul.</h1>
+{% block content %}
+    {% if session%}
+
+        <h1>Bienvenue, {{session['nom_complet']}}</h1>
+        <p>Vous êtes sur votre compte.</p>
+
+
+        
+    {% endif %}  
+
+
+<h1></h1>
 
 {% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'admin.html' %}
+
+{% block title %} Reservation {% endblock %}
+{% block content %}
+
+<br>
+<h1>Liste des réservations</h1>
+
+
+    <table class="table table-success table-striped">
+        <thead>
+                <tr>
+                  
+                  <th scope="col">Nom </th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Place</th>
+                  <th scope="col">id_evenement</th>
+                  <th scope="col">id_user</th>
+                  <th scope="col">id_reservation</th>
+                  <th scope="col">Statut</th>
+                  
+               
+                </tr>
+              
+        </thead>
+        <tbody>
+            {% for reservation in reservations %}
+
+                <tr>
+                    <td>{{reservation[0]}}</td>
+                    <td>{{reservation[1]}}</td>
+                    <td>{{reservation[2]}}</td>
+                    <td>{{reservation[3]}}</td>
+                    <td>{{reservation[4]}}</td>
+                    <td>{{reservation[5]}}</td>
+                    <td>{{reservation[6]}}</td>
+                                        
+                </tr>
+            {%endfor %}
+           
+        </tbody>
+      </table>
+   
+{% endblock %}
